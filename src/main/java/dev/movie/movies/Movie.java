@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor //annotation for taking all param
 @NoArgsConstructor //no param
 public class Movie {
-    @Id // this is like PK
+    @Id
     private ObjectId id;
     private String imdbId;
     private String title;
@@ -24,7 +24,16 @@ public class Movie {
     private String poster;
     private List<String> backdrops;
     private List<String> genres;
-    @DocumentReference //basically it will save on id's in table and create another for reviews
+    @DocumentReference
     private List<Review> reviews;
 
+    public Movie(String imdbId, String title, String releaseDate, String trailerLink, String poster, List<String> backdrops, List<String> genres) {
+        this.imdbId = imdbId;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.trailerLink = trailerLink;
+        this.poster = poster;
+        this.backdrops = backdrops;
+        this.genres = genres;
+    }
 }
